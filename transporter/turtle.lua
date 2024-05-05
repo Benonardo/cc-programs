@@ -493,7 +493,7 @@ local function network()
             id = "treefarm",
             next_tree = 3,
             tree_left = true,
-            tree_spacing = tonumber(split_message[1])
+            tree_spacing = tonumber(split_message[2])
         }
         save_job()
         rednet.send(id, "starting", PROTOCOL)
