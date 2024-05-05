@@ -299,7 +299,7 @@ local function tick()
             else
                 turn_left()
                 turn_left()
-                job["next_tree"] = 3
+                job["next_tree"] = job["tree_spacing"]
                 job["tree_left"] = not job["tree_left"]
                 save_job()
             end
@@ -317,7 +317,7 @@ local function tick()
                         turn_left()
                     end
                     job["go_down"] = false
-                    job["next_tree"] = 7
+                    job["next_tree"] = job["tree_spacing"] + 1
                     job["current_height"] = nil
                     save_job()
                 end
@@ -493,6 +493,7 @@ local function network()
             id = "treefarm",
             next_tree = 3,
             tree_left = true,
+            tree_spacing = tonumber(split_message[1])
         }
         save_job()
         rednet.send(id, "starting", PROTOCOL)
