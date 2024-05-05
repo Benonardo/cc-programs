@@ -491,7 +491,7 @@ local function network()
     elseif split_message[1] == "treefarm" then
         job = {
             id = "treefarm",
-            next_tree = 3,
+            next_tree = tonumber(split_message[2]),
             tree_left = true,
             tree_spacing = tonumber(split_message[2])
         }
