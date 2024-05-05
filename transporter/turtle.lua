@@ -292,6 +292,7 @@ local function tick()
         goto continue
     elseif job and job["id"] == "treefarm" then
         if job["next_tree"] > 0 then
+            turtle.suckDown()
             local successful, _ = turtle.forward()
             if successful then
                 job["next_tree"] = job["next_tree"] - 1
